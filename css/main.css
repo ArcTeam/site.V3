@@ -1,0 +1,41 @@
+html, body{font-family: 'Open Sans', sans-serif; color:#6c757d;}
+ul{margin:0;padding:0}
+li{list-style-type: none;}
+a:hover{text-decoration: none;}
+#main{position:absolute;top: 0;left: 0;bottom:0;z-index:1}
+#nav{position:fixed;top: 0;bottom:0;z-index:2}
+#nav ul {width:100%;height:100%;}
+#nav li {display: block;width: 100%; height:12.5%;}
+
+@media (max-width: 575px) {
+  #main{right:0}
+  #nav{right:-20%;width:20%}
+}
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  #main{right:5%}
+  #nav{right:0;width:5%}
+}
+
+@media (any-hover: hover) {
+
+}
+
+@media (any-hover: none) {
+
+}
