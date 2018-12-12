@@ -9,7 +9,7 @@ session_start();
   </head>
   <body>
     <?php require('inc/nav.php'); ?>
-    <div id="main" class="bg-light"> 
+    <div id="main" class="bg-light">
       <div class="container-fluid">
         <div class="row">
           <div class="col bg-white m-2">
