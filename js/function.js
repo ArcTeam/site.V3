@@ -13,9 +13,11 @@ window.addEventListener("orientationchange", function() {
 }, false);
 
 function setDim(){
+  nav = $("#nav").height()
+  usrMenu = $("#usrMenu").is(':visible') ? $("#usrMenu").height() : 0;
   if (screen.width < 991) {
-    $("#main").css({"margin-top":$("#nav").height() + 10})
+    $("#main").css({"margin-top": nav + usrMenu + 10})
   }else {
-    $("#main").css({"margin-top":"0"})
+    $("#main").css({"margin-top": usrMenu + 10})
   }
 }
