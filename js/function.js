@@ -1,6 +1,6 @@
+const page = window.location.pathname.split('/').pop()
 $(document).ready(function() {
-  btnGroupClass(screen.width)
-  page = window.location.pathname.split('/').pop()
+  setDim();
   menuLink = page.split('.')[0];
   $("#nav a[href='"+menuLink+".php']").addClass('active');
   $(".submenu").on('click',function(){ $("#usrMenu").slideToggle('fast'); })
@@ -8,14 +8,14 @@ $(document).ready(function() {
 
 window.addEventListener("orientationchange", function() {
   window.setTimeout(function() {
-    btnGroupClass(screen.width)
+    setDim();
   }, 200);
 }, false);
 
-function btnGroupClass(mq){
-  if (mq < 992) {
-    $("#usrMenu").find('.btn-group').addClass('btn-group-sm')
+function setDim(){
+  if (screen.width < 991) {
+    $("#main").css({"margin-top":$("#nav").height() + 10})
   }else {
-    $("#usrMenu").find('.btn-group').removeClass('btn-group-sm')
+    $("#main").css({"margin-top":"0"})
   }
 }
