@@ -50,6 +50,12 @@ a:hover{text-decoration: none;}
 
 .mainTitleGroup{font-family: 'Russo One', sans-serif;}
 .mainTitleGroup>h1{text-shadow: 0 2px 2px rgba(0,0,0,.4);}
+.bg-twitter{background: rgb(29, 161, 242);}
+.text-twitter{color: rgb(29, 161, 242);}
+.bg-instagram{background: rgb(188, 42, 141);}
+.text-instagram{color: rgb(188, 42, 141);}
+
+.presText{height:400px;overflow:auto;}
 
 @media (max-width: 575px) {
   #nav{left:0;width:100%;}

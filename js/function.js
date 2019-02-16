@@ -1,4 +1,6 @@
 const page = window.location.pathname.split('/').pop()
+const observer = lozad();
+observer.observe();
 $(document).ready(function() {
   setDim();
   menuLink = page.split('.')[0];

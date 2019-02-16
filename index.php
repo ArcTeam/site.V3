@@ -7,7 +7,7 @@ session_start();
     <?php require('inc/meta.php'); ?>
     <?php require('inc/css.php'); ?>
     <style media="screen">
-      .cardGroup .card{margin-bottom:10px;box-shadow: 0 .125rem .25rem rgba(0,0,0,.2)!important;}
+      .cardGroup .card, .nocard{margin-bottom:10px;box-shadow: 0 .125rem .25rem rgba(0,0,0,.2)!important;}
     </style>
   </head>
   <body>
@@ -22,6 +22,22 @@ session_start();
         </div>
       </div>
       <div id="mappa" class="shadow"></div>
+      <div class="container-fluid mt-5 presentazione">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="presImg bg-white"></div>
+          </div>
+          <div class="col-md-4">
+            <div class="presText bg-white p-3">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="container-fluid mt-5 cardGroup">
         <div class="row">
           <div class="col-md-4">
@@ -29,7 +45,7 @@ session_start();
               <div class="card ator">
                 <div class="card-body p-0">
                   <h4 class="card-title bg-info text-white p-3">Geek corner <i class="fas fa-code float-right"></i></h4>
-                  <p class="card-text p-4"><i class="fas fa-code fa-5x text-info float-left mr-3"></i> ATOR (Arc-Team Open Research) è un blog che nasce dall'esigenza di condividere le nostre esperienze in ambito informatico, i problemi riscontrati durante lo sviluppo di un software o i test su applicazioni varie, le soluzioni adottate per risolvere tali problemi. La vasta comunità internazionale che supporta il blog e l'alto livello tecnico degli utenti hanno reso il blog un punto di riferimento per tuto ciò che riguarda l'informatica applicata ai Beni Culturali...ma no solo! Di seguito gli ultimi post inseriti, in fondo il link alla pagina principale del blog.</p>
+                  <p class="card-text p-4"><i class="fas fa-code fa-5x text-info float-left mr-3"></i> ATOR è un blog che nasce dall'esigenza di condividere le nostre esperienze in ambito informatico, i problemi riscontrati durante lo sviluppo di un software o i test su applicazioni varie, le soluzioni adottate per risolvere tali problemi. La vasta comunità internazionale che supporta il blog e l'alto livello tecnico degli utenti hanno reso il blog un punto di riferimento per tuto ciò che riguarda l'informatica applicata ai Beni Culturali...ma no solo! Di seguito gli ultimi post inseriti, in fondo il link alla pagina principale del blog.</p>
                 </div>
               </div>
               <script src="http://feeds.feedburner.com/blogspot/YduRN?format=sigpro" type="text/javascript" ></script>
@@ -72,7 +88,22 @@ session_start();
               <!-- post block end -->
             </div>
             <div class="col-md-4">
-
+              <div class="card instagram">
+                <div class="card-body p-0">
+                  <h4 class="card-title bg-instagram text-white p-3">Instagram <i class="fab fa-instagram float-right"></i></h4>
+                  <p class="card-text p-4"><i class="fab fa-instagram fa-5x text-instagram float-left mr-3"></i> Nel nostro profilo Instagram raccogliamo tutte le immagini più significative dei nostri lavori in giro per l'Italia...e anche un po' per il mondo! Se ti va fai un salto sul nostro <a href="https://www.instagram.com/arcteamarchaeology/" target="_blank" title="pagina ufficiale di Instagram">profilo Instagram</a></p>
+                </div>
+              </div>
+              <div class="p-3 instaWrap bg-white rounded shadow nocard"></div>
+              <div class="p-3 bg-instagram text-white rounded"><a href="https://www.instagram.com/arcteamarchaeology/" target="_blank" title="[link esterno] Seguici su Instagram" class="text-white" style="font-size:15px;"><i class="fab fa-instagram"></i> Seguici su Instagram</a></div>
+              <div class="card twitter mt-5">
+                <div class="card-body p-0">
+                  <h4 class="card-title bg-twitter text-white p-3">Twitter <i class="fab fa-twitter-square float-right"></i></h4>
+                  <p class="card-text p-4"><i class="fab fa-twitter text-twitter fa-5x float-left mr-3"></i> Arc-Team è anche su Twitter! Segui <a href="https://twitter.com/ArcTeamArch" target="_blank" title="pagina ufficiale di twitter ">@ArcTeamArch</a> per rimanere sempre aggiornato sulle nostre attività, sui nuovi progetti o semplicemente per condividere con noi alcune riflessioni</p>
+                </div>
+                  <a class="twitter-timeline" data-height="500" href="https://twitter.com/ArcTeamArch?ref_src=twsrc%5Etfw">Tweets by ArcTeamArch</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              </div>
+              <div class="p-3 bg-twitter text-white rounded"><a href="https://twitter.com/ArcTeamArch" target="_blank" title="[link esterno] Seguici su Twitter" class="text-white" style="font-size:15px;"><i class="fab fa-twitter-square"></i> Seguici su Twitter</a></div>
             </div>
         </div>
       </div>
@@ -82,11 +113,7 @@ session_start();
     <script type="text/javascript">
       var osm = new ol.layer.Tile({ source: new ol.source.OSM() })
       var view = new ol.View({ center: ol.proj.fromLonLat([23, 45]), zoom: 5 })
-      var map = new ol.Map({
-        target: 'mappa',
-        layers: [osm],
-        view: view
-      });
+      var map = new ol.Map({ target: 'mappa', layers: [osm], view: view });
       $(".feedburnerFeedBlock > ul")
         .find('li')
         .replaceWith(function(){
@@ -95,6 +122,8 @@ session_start();
       $(".feedburnerFeedBlock > ul").replaceWith(function(){
         return $("<div />", {html: $(this).html()});
       })
+      $(".feedburnerFeedBlock .headline>a").addClass('d-block text-info p-1 border-bottom border-info')
+      $(".feedburnerFeedBlock p.date").addClass('small')
       $(".fbsubscribelink")
       .prepend('<a href="http://arc-team-open-research.blogspot.it/" title="[link esterno] Vai alla pagina iniziale di ATOR" target="_blank"><i class="fab fa-blogger-b" aria-hidden="true"></i> Visita il nostro blog</a>')
       .replaceWith(function(){
@@ -123,30 +152,42 @@ session_start();
           iframe = $("<iframe/>",{width:"100%",src:urlFrame, frameborder:'0',allowFullScreen:'allowFullScreen'}).appendTo(div)
         });
 
-        getJson = 'https://api.instagram.com/v1/users/self/media/recent/?'
+        tok = '4209263315.9bb57b2.a1220e62e7764389b63b905bd519c824'
+        tag = 'archaeology'
+        uri = 'htttp://www.arc-team.com'
+        count = 30
+        // getJson = 'https://api.instagram.com/v1/tags/' + tag + '/media/recent'
+        getJson = 'https://api.instagram.com/v1/users/4209263315/media/recent/'
+
+
         insta( getJson, function( data ) {
           console.log(data);
+          $.each(data.data, function(i,v){
+            img = v.images.low_resolution.url
+            w = $(".instaWrap").width() / 3
+
+            // w = v.images.thumbnail.width
+            // h = v.images.thumbnail.height
+
+            $("<img/>",{class:'d-inline-block m-0 p-0 lozad',width:w}).attr("data-src",img).appendTo('.instaWrap')
+            observer.observe();
+          })
         })
 
         function insta( endpointUrl, doneCallback ) {
           return $.ajax({
             url: endpointUrl,
             dataType: 'jsonp',
-            data: {access_token: '4209263315.9bb57b2.a1220e62e7764389b63b905bd519c824'}
+            data: {access_token: tok,count:count}
           })
           .done(doneCallback)
-          .fail(function() {
-            console.log("error");
-          })
-          .always(function() {
-            console.log("complete");
-          });
-
+          .fail(function() { console.log("error"); }).always(function() { console.log("complete"); });
         }
 
 
 
       });
     </script>
+    <!-- <script src="js/instatest.js" charset="utf-8"></script> -->
   </body>
 </html>
