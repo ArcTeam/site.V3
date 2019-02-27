@@ -24,16 +24,18 @@ session_start();
       <div id="mappa" class="shadow"></div>
       <div class="container-fluid mt-5 presentazione">
         <div class="row">
-          <div class="col-md-8">
-            <div class="presImg bg-white"></div>
-          </div>
-          <div class="col-md-4">
-            <div class="presText bg-white p-3">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+          <div class="col">
+            <div class="presWrap">
+              <div class="presImg"></div>
+              <div class="presText rounded">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -111,9 +113,7 @@ session_start();
     <?php require('inc/footer.php'); ?>
     <?php require('inc/lib.php'); ?>
     <script type="text/javascript">
-      var osm = new ol.layer.Tile({ source: new ol.source.OSM() })
-      var view = new ol.View({ center: ol.proj.fromLonLat([23, 45]), zoom: 5 })
-      var map = new ol.Map({ target: 'mappa', layers: [osm], view: view });
+      initMap()
       $(".feedburnerFeedBlock > ul")
         .find('li')
         .replaceWith(function(){
@@ -152,41 +152,32 @@ session_start();
           iframe = $("<iframe/>",{width:"100%",src:urlFrame, frameborder:'0',allowFullScreen:'allowFullScreen'}).appendTo(div)
         });
 
-        tok = '4209263315.9bb57b2.a1220e62e7764389b63b905bd519c824'
-        tag = 'archaeology'
-        uri = 'htttp://www.arc-team.com'
-        count = 30
-        // getJson = 'https://api.instagram.com/v1/tags/' + tag + '/media/recent'
-        getJson = 'https://api.instagram.com/v1/users/4209263315/media/recent/'
-
-
-        insta( getJson, function( data ) {
-          console.log(data);
-          $.each(data.data, function(i,v){
-            img = v.images.low_resolution.url
-            w = $(".instaWrap").width() / 3
-
-            // w = v.images.thumbnail.width
-            // h = v.images.thumbnail.height
-
-            $("<img/>",{class:'d-inline-block m-0 p-0 lozad',width:w}).attr("data-src",img).appendTo('.instaWrap')
-            observer.observe();
-          })
-        })
-
-        function insta( endpointUrl, doneCallback ) {
-          return $.ajax({
-            url: endpointUrl,
-            dataType: 'jsonp',
-            data: {access_token: tok,count:count}
-          })
-          .done(doneCallback)
-          .fail(function() { console.log("error"); }).always(function() { console.log("complete"); });
-        }
-
-
-
       });
+      insta( function( data ) {
+        $.each(data.data, function(i,v){
+          img = v.images.low_resolution.url
+          w = $(".instaWrap").width() / 3
+          $("<img/>",{class:'d-inline-block m-0 p-0 lozad',width:w}).attr("data-src",img).appendTo('.instaWrap')
+          observer.observe();
+        })
+      })
+      $.post('class/funzioni.php', {funzione:'randomBg'}, function(response) {
+        start=0;
+        totImg=0;
+        folder = 'img/home.presentazione/';
+        $.each(response, function(idx,img){
+          totImg ++;
+          if (idx==2) {
+            css={"animation-delay":"0","background-image":"url('"+folder+img+"')"}
+          }else {
+            start = start + 8;
+            css={"animation-delay":start+"s","background-image":"url('"+folder+img+"')"}
+          }
+          $("<figure/>").css(css).appendTo('.presImg');
+          console.log(start+" "+img);
+        })
+      }, 'json');
+
     </script>
     <!-- <script src="js/instatest.js" charset="utf-8"></script> -->
   </body>
