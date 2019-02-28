@@ -9,6 +9,10 @@ session_start();
     <style media="screen">
       .cardGroup .card, .nocard{margin-bottom:10px;box-shadow: 0 .125rem .25rem rgba(0,0,0,.2)!important;}
     </style>
+    <link rel="stylesheet" href="css/bgFade.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
   </head>
   <body>
     <?php require('inc/nav.php'); ?>
@@ -27,13 +31,14 @@ session_start();
           <div class="col">
             <div class="presWrap">
               <div class="presImg"></div>
-              <div class="presText rounded">
+              <div class="presText rounded shadow">
                 <div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  </p>
+                  <p class="h4 mainTitleGroup border-bottom">Cos'è <span class="text-danger">A</span>rc-<span class="text-danger">T</span>eam</p>
+                  <p>Archeologi di formazione ma informatici nell'animo, e proprio archeologia e informatica sono i cardini su cui si basa il nostro lavoro.<br>La nostra storia parte dall'ormai lontano 2005 ed è stata subito chiara la strada che volevamo percorrere: sperimentare nuove tecnologie informatiche per migliorare il lavoro dell'archeologo...tutto rigorosamente Open Source.</p>
+                  <p>Negli anni abbiamo avuto la possibilità di approfondire determinati argomenti quali modellazione 3d, fotogrammetria, rilievi topografici, sviluppo di applicazioni web based, gestione di sistemi di reti, modellazione database, GIS sia desktop che web</p>
+                  <p>Un aspetto del nostro lavoro per noi di fondamentale importanza è la <strong>condivisione</strong> della conoscenza, per questo abbiamo deciso di aprire un blog in cui condividiamo tutti le nostre sperimentazioni in campo informatico, in modo da confrontarci con altri ricercatori e, da questo confronto, cercare di migliorare...dai un'occhiata alla sezione <strong>Geek corner</strong>, magari qualche argomento potrebbe incuriosirti!</p>
+                  <p>Sempre in un'ottica di condivisione, abbiamo deciso di pubblicare liberamente tutti i nostri lavori, sia su questso sito che su piattaforme specifiche come Academia.edu o ResearchGate, nella sezione <strong>OpenData</strong> troverai un po' di questo materiale...speriamo interessante!</p>
+                  <p class="h5 mainTitleGroup">Buona navigazione!</p>
                 </div>
               </div>
             </div>
@@ -88,8 +93,6 @@ session_start();
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
               </div>
               <!-- post block end -->
-            </div>
-            <div class="col-md-4">
               <div class="card instagram">
                 <div class="card-body p-0">
                   <h4 class="card-title bg-instagram text-white p-3">Instagram <i class="fab fa-instagram float-right"></i></h4>
@@ -98,6 +101,31 @@ session_start();
               </div>
               <div class="p-3 instaWrap bg-white rounded shadow nocard"></div>
               <div class="p-3 bg-instagram text-white rounded"><a href="https://www.instagram.com/arcteamarchaeology/" target="_blank" title="[link esterno] Seguici su Instagram" class="text-white" style="font-size:15px;"><i class="fab fa-instagram"></i> Seguici su Instagram</a></div>
+            </div>
+            <div class="col-md-4">
+              <!-- Post block start -->
+              <div class="card opendata">
+                <div class="card-body p-0">
+                  <h4 class="card-title bg-success text-white p-3">OpenData Documents <i class="fab fa-creative-commons float-right"></i></h4>
+                  <p class="card-text p-4"><i class="fab fa-creative-commons fa-5x text-success float-left mr-3"></i>La libera circolazione delle idee è alla base del nostro lavoro, per questo abbiamo dedicato una sezione del nostro sito alla condivisione di pubblicazioni, articoli scientifici e presentazioni che la nostra ditta ha prodotto negli anni. Alcuni articoli sono su Academia.edu, altri su Research Gate. Di seguito i link alle ultime risorse pubblicate.</p>
+                </div>
+              </div>
+              <div class="card p-3">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+              </div>
+              <div class="card p-3">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+              </div>
+              <div class="card p-3">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+              </div>
+              <div class="card p-3">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+              </div>
+              <div class="card p-3">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+              </div>
+              <!-- post block end -->
               <div class="card twitter mt-5">
                 <div class="card-body p-0">
                   <h4 class="card-title bg-twitter text-white p-3">Twitter <i class="fab fa-twitter-square float-right"></i></h4>
@@ -112,6 +140,14 @@ session_start();
     </div>
     <?php require('inc/footer.php'); ?>
     <?php require('inc/lib.php'); ?>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <script src="lib/bgFade.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js" charset="utf-8"></script>
+
+    <script src="js/function.js"></script>
+
     <script type="text/javascript">
       initMap()
       $(".feedburnerFeedBlock > ul")
@@ -161,24 +197,9 @@ session_start();
           observer.observe();
         })
       })
-      $.post('class/funzioni.php', {funzione:'randomBg'}, function(response) {
-        start=0;
-        totImg=0;
-        folder = 'img/home.presentazione/';
-        $.each(response, function(idx,img){
-          totImg ++;
-          if (idx==2) {
-            css={"animation-delay":"0","background-image":"url('"+folder+img+"')"}
-          }else {
-            start = start + 8;
-            css={"animation-delay":start+"s","background-image":"url('"+folder+img+"')"}
-          }
-          $("<figure/>").css(css).appendTo('.presImg');
-          console.log(start+" "+img);
-        })
+      $.post('class/funzioni.php', {funzione:'randomBg'}, function(imgList) {
+        $(".presImg").fadeShow({ correctRatio: true, shuffle: true, speed: 5000, images: imgList});
       }, 'json');
-
     </script>
-    <!-- <script src="js/instatest.js" charset="utf-8"></script> -->
   </body>
 </html>

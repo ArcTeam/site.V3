@@ -4,6 +4,11 @@ if(isset($_POST['funzione']) && function_exists($_POST['funzione'])) {
 }
 
 function randomBg(){
-  return json_encode(array_diff(scandir("../img/home.presentazione/"), array('.', '..')));
+  $out=[];
+  $arr = array_diff(scandir("../img/home.presentazione/"), array('.', '..'));
+  foreach ($arr as $key => $img) {
+    $out[]='./img/home.presentazione/'.$img;
+  }
+  return json_encode($out);
 }
 ?>

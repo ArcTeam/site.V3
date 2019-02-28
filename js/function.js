@@ -38,7 +38,49 @@ function insta( doneCallback ) {
   .fail(function() { console.log("error"); }).always(function() { console.log("complete"); });
 }
 function initMap(){
-  var osm = new ol.layer.Tile({ source: new ol.source.OSM() })
-  var view = new ol.View({ center: ol.proj.fromLonLat([23, 45]), zoom: 5 })
-  var map = new ol.Map({ target: 'mappa', layers: [osm], view: view });
+  osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  osmAttrib='Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors';
+  map = new L.Map('mappa');
+  osm = new L.TileLayer(osmUrl, {attribution: osmAttrib}).addTo(map);
+  markers = L.markerClusterGroup();
+
+  var pointStyle = {
+    radius: 8,
+    fillColor: "#ff7800",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+  };
+
+  $.getJSON('class/puntiMappa.php',function (data) {
+    console.log(data);
+    punti = L.geoJSON(data, {
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(
+          "<strong>"+feature.properties.nome+"</strong><br>"+
+          "inizio incarico: "+feature.properties.anno+"<br>"+
+          "interventi effettuati: "+feature.properties.attivita+"<br>"
+        );
+      }
+    });
+    markers.addLayer(punti);
+    map.addLayer(markers);
+    map.fitBounds(markers.getBounds());
+
+    resetMap = L.Control.extend({
+      options: { position: 'topleft'},
+      onAdd: function (map) {
+        var container = L.DomUtil.create('div', 'extentControl leaflet-bar leaflet-control leaflet-touch');
+        btn=$("<a/>",{href:'#'}).appendTo(container);
+        $("<i/>",{class:'fas fa-home'}).appendTo(btn)
+        btn.on('click', function () {
+          map.fitBounds(markers.getBounds());
+        });
+        return container;
+      }
+    })
+
+    map.addControl(new resetMap());
+  });
 }
