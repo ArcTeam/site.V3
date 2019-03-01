@@ -8,10 +8,10 @@ FROM (
       SELECT 'Feature'::text AS type, st_asgeojson(st_centroid(st_union(st_transform(a.geom, 4326))))::json AS geometry, row_to_json(prop.*) AS properties
       FROM attivita a
       JOIN (
-        SELECT lavoro.id, lavoro.nome, lavoro.anno, count(attivita.*) as attivita
-        FROM lavoro, attivita
-        WHERE attivita.lavoro = lavoro.id
-        GROUP BY lavoro.id, lavoro.nome, lavoro.anno
+        SELECT lavoro.id, lavoro.nome, lavoro.anno, categoria.tipo, count(attivita.*) as attivita
+        FROM lavoro, attivita, liste.lavoro categoria
+        WHERE attivita.lavoro = lavoro.id AND lavoro.tipo = categoria.id
+        GROUP BY lavoro.id, lavoro.nome, lavoro.anno, categoria.tipo
       ) prop ON a.lavoro = prop.id
       group by prop
     ) features

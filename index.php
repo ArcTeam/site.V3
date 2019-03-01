@@ -8,11 +8,20 @@ session_start();
     <?php require('inc/css.php'); ?>
     <style media="screen">
       .cardGroup .card, .nocard{margin-bottom:10px;box-shadow: 0 .125rem .25rem rgba(0,0,0,.2)!important;}
+      .leaflet-container .leaflet-control-mouseposition {
+        background-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 5px #bbb;
+        padding: 0 5px;
+        margin:0;
+        color: #333;
+        font: 11px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+      }
     </style>
     <link rel="stylesheet" href="css/bgFade.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="lib/leaflet-awesome/leaflet.awesome-markers.css" />
   </head>
   <body>
     <?php require('inc/nav.php'); ?>
@@ -144,7 +153,9 @@ session_start();
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
     <script src="lib/bgFade.js" charset="utf-8"></script>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+    <script src="lib/leaflet-awesome/leaflet.awesome-markers.js" charset="utf-8"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js" charset="utf-8"></script>
+    <script src="lib/L.Control.MousePosition.js" charset="utf-8"></script>
 
     <script src="js/function.js"></script>
 
